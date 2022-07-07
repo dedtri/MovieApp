@@ -1,0 +1,51 @@
+﻿<Window x:Class="MovieApp.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MovieApp"
+        KeyDown="Window_KeyDown"
+        mc:Ignorable="d"
+        Title="Edit Movie" Height="350" Width="300">
+    <Window.Resources>
+
+        <!--Stylings til mine buttons-->
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="10, 20, 0, 20"/>
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="Width" Value="80"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="1" />
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <Grid x:Name="idgrid" Visibility="Visible" Height="50" Margin="0,10,0,0">
+            <Label Name="movieid" Content="                              Enter Movie ID: " Visibility="Visible"></Label>
+            <Label Name="movietitle" Content="Test" Visibility="Hidden" HorizontalAlignment="Center" FontWeight="Bold" FontSize="30"></Label>
+            <TextBox TextChanged="ID_TextChanged" KeyDown="ID_KeyDown2" Name="ID" Text="" Height="20" Margin="10,25,10,0" RenderTransformOrigin="0.705,0.676" Visibility="Visible"></TextBox>
+        </Grid>
+        <Grid x:Name="formgrid" Height="170" Margin="0,10,0,0" Visibility="Hidden">
+            <Label Content="New Title Here: " Margin="0,10,0,0"></Label>
+            <TextBox Name="title" Text="" Height="20" Margin="150,0,8,120"></TextBox>
+            <Label Content="New Director Here: " Margin="0,60,0,0"></Label>
+            <TextBox Name="director" Text="" Height="20" Margin="150,0,8,20"></TextBox>
+            <Label Content="New Release Year Here: " Margin="0,110,0,0"></Label>
+            <TextBox KeyDown="ID_KeyDown" Name="releaseyear" Text="" Height="20" Margin="150,80,8,0"></TextBox>
+        </Grid>
+        <Grid>
+            <Button Margin="0,20,-90,20" Style="{StaticResource ButtonStyle}" FontSize="10" Content="CANCEL" Click="Button_Click_1" HorizontalAlignment="Center" />
+            <Button Visibility="Visible" x:Name="submit" Margin="107,-168,0,208" Style="{StaticResource ButtonStyle}" FontSize="10" Content="SUBMIT" Click="Button_Click_2" HorizontalAlignment="Left" />
+            <Button Visibility="Hidden" x:Name="confirm" Margin="0,20,120,20" Style="{StaticResource ButtonStyle}" FontSize="10" Content="CONFIRM" Click="Button_Click" HorizontalAlignment="Center" />
+        </Grid>
+
+    </StackPanel>
+</Window>
